@@ -6,8 +6,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.br.bludata.api.controllers.interfaces.ISupplierController;
@@ -24,7 +26,7 @@ public class SupplerController implements ISupplierController{
 
     @Override
     @PostMapping()
-    public ResponseEntity<?> createSupplier(Supplier supplier) {
+    public ResponseEntity<?> createSupplier(@RequestBody Supplier supplier) {
         return supplierService.createSupplier(supplier);
     }
 
@@ -36,19 +38,19 @@ public class SupplerController implements ISupplierController{
 
     @Override
     @PutMapping("/{id}")
-    public ResponseEntity<?> updateSupplier(Supplier supplier) {
+    public ResponseEntity<?> updateSupplier(@RequestBody Supplier supplier) {
         return supplierService.updateSupplier(supplier);
     }
 
     @Override
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> deleteSupplier(Long id) {
+    public ResponseEntity<?> deleteSupplier(@PathVariable Long id) {
        return supplierService.deleteSupplier(id);
     }
 
     @Override
     @GetMapping("/{id}")
-    public ResponseEntity<?> selectSupplierById(Long id) {
+    public ResponseEntity<?> selectSupplierById(@PathVariable Long id) {
         return supplierService.selectSupplierById(id);
     }
     

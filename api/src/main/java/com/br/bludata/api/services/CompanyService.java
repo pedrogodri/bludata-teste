@@ -29,11 +29,11 @@ public class CompanyService implements ICompanyService {
                 return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(message);
             }
             if (companyRepository.existsByDocumentCnpj(company.getDocumentCnpj())) {
-                message.setMessage("Já existe um jogador com este CPF.");
+                message.setMessage("Já existe um jogador com este CNPJ.");
                 return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(message);
             }
             if (company.getDocumentCnpj() == null || company.getDocumentCnpj().isEmpty()) {
-                message.setMessage("O CPF é obrigatório.");
+                message.setMessage("O CNPJ é obrigatório.");
                 return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(message);
             }
 

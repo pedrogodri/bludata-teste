@@ -26,7 +26,6 @@ public class SupplierService implements ISupplierService {
 
     public ResponseEntity<?> createSupplier(Supplier supplier) {
         try {
-            // Validating the type of supplier and specific fields
             switch (supplier.getTypePerson()) {
                 case PF:
                     if (supplierRepository.existsByDocumentCnpjCpf(supplier.getDocumentCnpjCpf())) {
